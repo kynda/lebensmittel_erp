@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Lebensmittel ERP</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Lebensmittel ERP</h1>
+        <nav>
+            <a href="/">Start</a> |
+            <a href="/kunden">Kunden</a> |
+            <a href="/produkte">Produkte</a> |
+            <a href="/chargen">Chargen</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
+{% extends "base.html" %}
+{% block content %}
+<h2>Kundenverwaltung</h2>
+
+<form method="post" action="/kunden/neu">
+    <label>Name:</label>
+    <input name="name" required><br>
+    <label>Adresse:</label>
+    <input name="adresse"><br>
+    <label>Typ:</label>
+    <select name="typ">
+        <option>B2C</option>
+        <option>B2B</option>
+    </select><br>
+    <button type="submit">Hinzufügen</button>
+</form>
+
+<h3>Vorhandene Kunden</h3>
+<table>
+<tr><th>ID</th><th>Name</th><th>Adresse</th><th>Typ</th></tr>
+{% for k in kunden %}
+<tr><td>{{k.id}}</td><td>{{k.name}}</td><td>{{k.adresse}}</td><td>{{k.typ}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
+{% extends "base.html" %}
+{% block content %}
+<h2>Produkte</h2>
+
+<form method="post" action="/produkte/neu">
+    <label>Name:</label>
+    <input name="name" required><br>
+    <label>Preis (€):</label>
+    <input name="preis" type="number" step="0.01" required><br>
+    <button type="submit">Hinzufügen</button>
+</form>
+
+<h3>Vorhandene Produkte</h3>
+<table>
+<tr><th>ID</th><th>Name</th><th>Preis (€)</th></tr>
+{% for p in produkte %}
+<tr><td>{{p.id}}</td><td>{{p.name}}</td><td>{{p.preis}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
