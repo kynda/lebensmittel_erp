@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fafafa;
+}
+header {
+    background: #4679BD;
+    padding: 10px;
+    color: white;
+}
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+main {
+    padding: 20px;
+}
+form {
+    background: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background: #f0f0f0;
+}
